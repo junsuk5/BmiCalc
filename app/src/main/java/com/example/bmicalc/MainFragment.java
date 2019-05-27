@@ -44,8 +44,8 @@ public class MainFragment extends Fragment {
             public void onClick(View v) {
 
                 MainFragmentDirections.ActionMainFragment2ToResultFragment action = MainFragmentDirections.actionMainFragment2ToResultFragment(
-                        Float.valueOf(heightEdit.getText().toString()),
-                        Float.valueOf(weightEdit.getText().toString())
+                        Float.valueOf(weightEdit.getText().toString()),
+                        Float.valueOf(heightEdit.getText().toString())
                 );
 
                 NavController navController = Navigation
