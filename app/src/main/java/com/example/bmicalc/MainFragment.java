@@ -2,18 +2,16 @@ package com.example.bmicalc;
 
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.Toast;
 
 
 /**
@@ -40,20 +38,21 @@ public class MainFragment extends Fragment {
 
         final EditText heightEdit = view.findViewById(R.id.height_edit);
         final EditText weightEdit = view.findViewById(R.id.weight_edit);
-        Toast.makeText(requireActivity(), heightEdit+":"+weightEdit, Toast.LENGTH_SHORT).show();
 
-//        view.findViewById(R.id.result_btn).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Bundle bundle = new Bundle();
-//                bundle.putString("height", heightEdit.getText().toString());
-//                bundle.putString("weight", weightEdit.getText().toString());
-//
-//                NavController navController = Navigation.findNavController(this,
-//                                R.id.nav_host_fragment);
-//                navController.navigate(bundle,R.id.);
-//            }
-//        });
+        view.findViewById(R.id.result_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                MainFragmentDirections.ActionMainFragment2ToResultFragment action = MainFragmentDirections.actionMainFragment2ToResultFragment(
+                        Float.valueOf(heightEdit.getText().toString()),
+                        Float.valueOf(weightEdit.getText().toString())
+                );
+
+                NavController navController = Navigation
+                        .findNavController(requireActivity(), R.id.nav_host_fragment);
+                navController.navigate(action);
+            }
+        });
     }
 
 }
