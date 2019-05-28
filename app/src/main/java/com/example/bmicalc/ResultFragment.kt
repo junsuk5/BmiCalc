@@ -51,8 +51,6 @@ class ResultFragment : Fragment() {
             bmi >= 18.5 -> result_text.text = "정상"
             else -> result_text.text = "저체중"
         }
-
-
     }
 
 
